@@ -8,7 +8,7 @@ public class AwsImageApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AwsImageApplication.class, args);
-		System.out.println("this works");
+		System.out.println("server started...");
 	}
 
 }

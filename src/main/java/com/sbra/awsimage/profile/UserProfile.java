@@ -1,5 +1,6 @@
 package com.sbra.awsimage.profile;
 
+import java.util.Optional;
 import java.util.UUID;
 
 public class UserProfile {
@@ -30,8 +31,8 @@ public class UserProfile {
 		this.username = username;
 	}
 
-	public String getUserProfileLink() {
-		return userProfileLink;
+	public Optional<String> getUserProfileLink() {
+		return Optional.ofNullable(userProfileLink);
 	}
 
 	public void setUserProfileLink(String userProfileLink) {
