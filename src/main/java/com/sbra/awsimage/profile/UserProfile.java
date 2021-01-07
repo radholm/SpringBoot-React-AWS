@@ -5,22 +5,22 @@ import java.util.UUID;
 
 public class UserProfile {
 
-	private UUID userProfileID;
+	private UUID userProfileId;
 	private String username;
 	private String userProfileLink; // S3 key
 
-	public UserProfile(UUID userProfileID, String username, String userProfileLink) {
-		this.userProfileID = userProfileID;
+	public UserProfile(UUID userProfileId, String username, String userProfileLink) {
+		this.userProfileId = userProfileId;
 		this.username = username;
 		this.userProfileLink = userProfileLink;
 	}
 
-	public UUID getUserProfileID() {
-		return userProfileID;
+	public UUID getUserProfileId() {
+		return userProfileId;
 	}
 
-	public void setUserProfileID(UUID userProfileID) {
-		this.userProfileID = userProfileID;
+	public void setUserProfileId(UUID userProfileID) {
+		this.userProfileId = userProfileId;
 	}
 
 	public String getUsername() {
@@ -43,7 +43,7 @@ public class UserProfile {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((userProfileID == null) ? 0 : userProfileID.hashCode());
+		result = prime * result + ((userProfileId == null) ? 0 : userProfileId.hashCode());
 		result = prime * result + ((userProfileLink == null) ? 0 : userProfileLink.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
@@ -58,10 +58,10 @@ public class UserProfile {
 		if (getClass() != obj.getClass())
 			return false;
 		UserProfile other = (UserProfile) obj;
-		if (userProfileID == null) {
-			if (other.userProfileID != null)
+		if (userProfileId == null) {
+			if (other.userProfileId != null)
 				return false;
-		} else if (!userProfileID.equals(other.userProfileID))
+		} else if (!userProfileId.equals(other.userProfileId))
 			return false;
 		if (userProfileLink == null) {
 			if (other.userProfileLink != null)
