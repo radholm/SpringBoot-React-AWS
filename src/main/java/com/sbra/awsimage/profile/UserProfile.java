@@ -19,7 +19,7 @@ public class UserProfile {
 		return userProfileId;
 	}
 
-	public void setUserProfileId(UUID userProfileID) {
+	public void setUserProfileId(UUID userProfileId) {
 		this.userProfileId = userProfileId;
 	}
 
