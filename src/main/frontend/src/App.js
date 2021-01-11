@@ -21,19 +21,42 @@ const UserProfiles = () => {
   return userProfiles.map((userProfile, index) => {
     return (
       <div key={index}>
+        <h1>AWS S3 Bucket</h1>
+        <p>Upload files to the cloud</p>
         <br />
-        <h1>{userProfile.username}</h1>
+        <h2>{userProfile.username}</h2>
         <p>{userProfile.userProfileId}</p>
-        <Dropzone />
+        <Dropzone {...userProfile} />
         <br />
       </div>
     );
   });
 };
 
-function Dropzone() {
+function Dropzone({ userProfileId }) {
   const onDrop = useCallback((acceptedFiles) => {
-    // Do something with the files
+    const file = acceptedFiles[0];
+    console.log(file);
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    axios
+      .post(
+        `http://localhost:8080/api/v1/user-profile/${userProfileId}/upload`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
+      .then(() => {
+        console.log("File uploaded successfully");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
