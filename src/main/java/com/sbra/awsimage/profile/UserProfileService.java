@@ -48,7 +48,7 @@ public class UserProfileService {
     public byte[] downloadUserProfile(UUID userProfileId) { // not yet implemented
         UserProfile user = getUserProfileOrThrow(userProfileId);
         String fullPath = String.format("%s/%s", BucketName.PROFILE_IMAGE.getBucketName(), user.getUserProfileId());
-        // fileStore.download(fullPath);
+        fileStore.download(fullPath);
         return null;
     }
 
